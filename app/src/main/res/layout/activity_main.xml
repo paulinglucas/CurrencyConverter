@@ -110,6 +110,7 @@
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
         android:layout_marginBottom="143dp"
+        android:onClick="convertCurrency"
         android:text="Convert!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

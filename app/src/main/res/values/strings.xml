@@ -3,18 +3,14 @@
     <string-array name="currencies_array">
         <item>US Dollar</item>
         <item>Euro</item>
-        <item>Pound</item>
+        <item>British Pound</item>
+        <item>Indian Rupee</item>
         <item>Australian Dollar</item>
-        <item>Peso</item>
         <item>CA Dollar</item>
-        <item>Rupee</item>
-        <item>Rupiah</item>
+        <item>Singapore Dollar</item>
         <item>Swiss Franc</item>
-        <item>Norwegian Krone</item>
-        <item>Ruble</item>
-        <item>New Zealand Dollar</item>
-        <item>Dong</item>
-        <item>Renminbi</item>
-        <item>Yen</item>
+        <item>Malaysian Ringgit</item>
+        <item>Chinese Yuan Renminbi</item>
+        <item>Japanese Yen</item>
     </string-array>
 </resources>
