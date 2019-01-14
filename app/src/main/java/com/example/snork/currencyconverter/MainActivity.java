@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,13 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
         spinner2.setAdapter(adapter);
-
     }
 
 
 
+    //function called on button click
     public void convertCurrency(View view) {
 
+        //HashMap of currency type and rates for easy access
         Map<String, Double> currencies = new HashMap<String, Double>() {{
             put("US Dollar", 1.00000);
             put("Euro", USDtoEuro);
@@ -63,13 +65,34 @@ public class MainActivity extends AppCompatActivity {
             put("Japanese Yen", USDtoYen);
         }};
 
+        //HashMap of currencies and their symbols
+        Map<String, String> symbols = new HashMap<String, String>() {{
+            put("US Dollar", "$");
+            put("Euro", "€");
+            put("British Pound", "£");
+            put("Indian Rupee", "₹");
+            put("Australian Dollar", "AU$");
+            put("CA Dollar", "$");
+            put("Singapore Dollar", "$");
+            put("Swiss Franc", "Fr.");
+            put("Malaysian Ringgit", "RM");
+            put("Chinese Yuan Renminbi", "¥");
+            put("Japanese Yen", "¥");
+        }};
+
+        //used to access HashMap key/value pairs
         String val1 = (String) spinner.getSelectedItem();
-        String val2 = (String) spinner.getSelectedItem();
+        String val2 = (String) spinner2.getSelectedItem();
 
-        double dollars = 1.00000 / currencies.get(val1);
-        double newCurrency = dollars * currencies.get(val2);
+        //actual converting
+        EditText amountText = (EditText) findViewById(R.id.editText);
+        String amount = amountText.getText().toString();
+        double money = Double.parseDouble(amount);
+        double toDollars = (1.00000 / currencies.get(val1)) * money;
+        double newCurrency = toDollars * currencies.get(val2);
+        String newCurrencyString = String.format("%.2f", newCurrency);
 
-        Toast.makeText(this, val2, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Converted amount: " + symbols.get(val2) + newCurrencyString, Toast.LENGTH_LONG).show();
     }
 
 }
